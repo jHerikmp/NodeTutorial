@@ -1,35 +1,16 @@
 require('dotenv').config()
-const { config } = require('dotenv');
-const express = require('express')
-const mongoose = require('mongoose')
-const app = express()
-
-app.use(
-    express.urlencoded({
-        extended: true
-    }),
-)
-
-app.use(express.json())
-
-const personRoutes = require('./routes/personRoutes')
-
-app.use('/person', personRoutes)
+const app = require('./src/app')
+const PORT = process.env.PORT || 3000
 
 app.get('/', (req, res) => {
     res.json({message: 'Oi Mundo! '})
 })
 
-const DB_USER = process.env.DB_USER
-const DB_PASSWORD = encodeURIComponent(process.env.DB_PASSWORD)
-mongoose.connect(
-    `mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicluster.xywnj.mongodb.net/bancodaapi?retryWrites=true&w=majority`
-    )
-.then(() => {
-    console.log('Conectamos ao MongoDB.')
-    app.listen(3000)
-})
-.catch((err) => console.log(err))
+
+app.listen(PORT, () => {
+    console.log(`Aplicação Rodando na porta : http://localhost:${PORT}/sistema/`)
+    console.log(`Swagger está rodando em http://${process.env.HOST}:${process.env.PORT}/doc`)
+  });
 
 
-//mongodb+srv://herikmitre:aspire20@apicluster.xywnj.mongodb.net/bancodaapi?retryWrites=true&w=majority
+//
