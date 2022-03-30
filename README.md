@@ -1,6 +1,6 @@
 # NodeTutorial
 
-Para a aplicação funcionar deverá ser criado um banco de dados no https://www.mongodb.com/atlas/database e conect=alo ao banco.
+Para a aplicação funcionar deverá ser criado um banco de dados no https://www.mongodb.com/atlas/database e conectá-lo ao banco.
 
 Os parâmetros de usuário e senha deverão ser inseridos em um arquivos chamado .env que receberão os seguintes atributos:
 DB_USER=UsuariodoBanco
